@@ -1,0 +1,75 @@
+.services {
+  background: #0F1C2E;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  overflow: hidden;
+
+  /* Estado inicial: curva pronunciada en la parte superior */
+  border-radius: 50% 50% 0 0 / 300px 300px 0 0;
+
+  /* Vincula la animación al scroll de la página.
+     "flatten" pasa de border-radius curvo a 0 mientras la sección
+     entra en el viewport — sin ningún JS, solo CSS. */
+  animation: flatten linear both;
+  animation-timeline: scroll(root);
+  animation-range: entry 0% entry 30%;
+}
+
+@keyframes flatten {
+  to { border-radius: 0; }
+}
+
+.heading {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.3s;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.icon {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.6rem;
+  color: #a78bfa;
+}
+
+.cardTitle {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.cardText {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  margin: 0;
+}
