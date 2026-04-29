@@ -1,0 +1,59 @@
+.projects {
+  background: #0F1C2E;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
+  margin-top: -100px;
+  border-radius: 50% 50% 0 0 / 300px 300px 0 0;
+  animation: flatten linear both;
+  animation-timeline: scroll(root);
+  animation-range: entry 0% entry 30%;
+}
+
+@keyframes flatten {
+  to { border-radius: 0; }
+}
+
+.heading {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.swiperWrapper {
+  width: 100%;
+  overflow-x: clip;
+  padding: 40px 0 60px;
+}
+
+.swiper {
+  width: 100%;
+  overflow: visible !important;
+}
+
+.slide {
+  width: 220px !important;
+  overflow: visible !important;
+}
+
+.card {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}

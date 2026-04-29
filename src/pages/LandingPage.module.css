@@ -1,159 +1,71 @@
-/* ── Formas geométricas flotantes ─────────────────────────────────────────────
-   Equivalente al GSAP que usaste en otro proyecto, pero solo con CSS.
-   - @keyframes reemplaza los .to() de GSAP
-   - animation-direction: alternate es el yoyo: true de GSAP
-   - animation-iteration-count: infinite es el repeat: -1 de GSAP
-   ─────────────────────────────────────────────────────────────────────────── */
-
-/* Contenedor que cubre todo el hero sin interferir con el contenido */
 .shapes {
   position: absolute;
-  inset: 0;           /* equivale a top/right/bottom/left: 0 a la vez */
-  overflow: hidden;   /* evita que las formas creen scroll horizontal */
+  inset: 0;
+  overflow: hidden;
   z-index: 0;
 }
 
-/* Propiedades comunes a todas las imágenes */
 .shapes > img {
   position: absolute;
   width: 70px;
 }
 
-.shape1 {
-  top: 60%;
-  left: 10%;
-  animation: float1 9s ease-in-out alternate infinite;
-}
-
-.shape2 {
-  top: 50%;
-  right: 10%;
-  animation: float2 10s ease-in-out alternate infinite;
-}
-
-.shape3 {
-  top: 15%;
-  left: 20%;
-  animation: float3 11s ease-in-out alternate infinite;
-}
-
-.shape4 {
-  top: 30%;
-  right: 20%;
-  animation: float4 12s ease-in-out alternate infinite;
-}
-
-
-/* Los @keyframes definen el estado inicial (from) y el final (to).
-   Con alternate la animación va de "from" a "to" y luego vuelve a "from",
-   igual que el yoyo de GSAP. */
+.shape1 { top: 60%; left: 10%;  animation: float1 9s  ease-in-out alternate infinite; }
+.shape2 { top: 50%; right: 10%; animation: float2 10s ease-in-out alternate infinite; }
+.shape3 { top: 15%; left: 20%;  animation: float3 11s ease-in-out alternate infinite; }
+.shape4 { top: 30%; right: 20%; animation: float4 12s ease-in-out alternate infinite; }
 
 @keyframes float1 {
-  from { transform: rotate(0deg)   translate(0,     0);    }
-  to   { transform: rotate(180deg) translate(90px,  100px);}
+  from { transform: rotate(0deg)   translate(0,      0);     }
+  to   { transform: rotate(180deg) translate(90px,   100px); }
 }
-
 @keyframes float2 {
-  from { transform: rotate(0deg)   translate(0,      0);    }
-  to   { transform: rotate(180deg) translate(-100px, -100px);}
+  from { transform: rotate(0deg)   translate(0,       0);     }
+  to   { transform: rotate(180deg) translate(-100px, -100px); }
 }
-
 @keyframes float3 {
-  from { transform: rotate(0deg)   translate(0,    0);   }
-  to   { transform: rotate(180deg) translate(100px,-60px);}
-}
-
-@keyframes float4 {
   from { transform: rotate(0deg)   translate(0,     0);    }
-  to   { transform: rotate(180deg) translate(100px, -100px);}
+  to   { transform: rotate(180deg) translate(100px, -60px); }
 }
-
-/* ─────────────────────────────────────────────────────────────────────────── */
+@keyframes float4 {
+  from { transform: rotate(0deg)   translate(0,     0);     }
+  to   { transform: rotate(180deg) translate(100px, -100px); }
+}
 
 .hero {
-   position: relative;  /* necesario para que .shapes se posicione dentro */
-   min-height: 100dvh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-
-   background: #5D02C2;
-   background: linear-gradient(143deg, rgba(93, 2, 194, 1) 0%, rgba(255, 135, 9, 1) 100%, rgba(242, 41, 150, 1) 100%);
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ── .content ─────────────────────────────────────────────────────────────────
-   Agrupa el nombre y el subtítulo y los apila verticalmente centrados.
-   ─────────────────────────────────────────────────────────────────────────── */
 .content {
-   position: relative;
-   z-index: 1;  /* queda por encima de las formas (z-index: 0) */
-   text-align: center;
-
-   /* Convertimos este div también en flex para apilar sus hijos en columna */
-   display: flex;
-   flex-direction: column;
-
-   /* Centra los hijos horizontalmente dentro de la columna */
-   align-items: center;
-
-   /* Espacio entre el h1 y el párrafo del subtítulo */
-   gap: 1rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
 }
 
-/* ── .name ────────────────────────────────────────────────────────────────────
-   Estilos del nombre "Gloria C".
-   ─────────────────────────────────────────────────────────────────────────── */
 .name {
-   /* Space Grotesk es la fuente principal (cargada desde Google Fonts).
-     system-ui y sans-serif son alternativas por si no carga. */
-   font-family: 'Lexend', system-ui, sans-serif;
-
-   /* clamp(mínimo, preferido, máximo) hace el tamaño fluido y responsivo:
-     - Nunca baja de 3.5rem (aprox. 56px) → móvil pequeño
-     - Intenta ser el 10% del ancho de la pantalla (10vw) → escalado fluido
-     - Nunca supera 8rem (128px) → escritorio grande */
-   font-size: 2.2rem;
-
-   font-weight: 600;
-   /* medium */
-   color: #ffffff;
-
-   /* Ajuste fino del espacio entre letras: valor negativo = letras más juntas.
-     Da un aspecto más compacto y moderno en títulos grandes. */
-   letter-spacing: -0.02em;
-
-   /* line-height: 1 → la altura de línea es exactamente igual al tamaño
-     de la fuente, sin espacio extra arriba ni abajo. */
-   line-height: 1;
-
-   /* Sombra de texto suave para mejorar la legibilidad sobre el degradado.
-     Parámetros: desplazamiento-X desplazamiento-Y desenfoque color */
-   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.18);
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.18);
 }
 
-/* ── .subtitle ────────────────────────────────────────────────────────────────
-   Contenedor del texto animado y el cursor parpadeante.
-   ─────────────────────────────────────────────────────────────────────────── */
 .subtitle {
-   /* Fira Code es una fuente monoespaciada estilo código (Google Fonts).
-     Courier New y monospace son alternativas genéricas. */
-   font-family: 'Fira Code', 'Courier New', monospace;
-
-   /* También fluido: entre 1rem y 1.6rem según el ancho de pantalla */
-   font-size: clamp(0.8rem, 3vw, 1.2rem);
-
-   /* Blanco con leve transparencia para que se vea el degradado debajo */
-   color: rgb(255, 255, 255);
-
-   /* Espacio entre letras ligeramente positivo: typical en fuentes mono */
-   letter-spacing: 0.04em;
-
-   /* inline-flex permite alinear verticalmente el texto y el cursor */
-   display: inline-flex;
-   align-items: center;
-   gap: 2px;
-
-   /* Altura mínima fija para evitar que el layout salte cuando el texto
-     está vacío (entre el borrado de una frase y el inicio de la siguiente) */
-   min-height: 2em;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
+  color: #fff;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2em;
 }

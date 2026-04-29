@@ -1,0 +1,108 @@
+.contact {
+  background: transparent;
+  min-height: 100dvh;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+.heading {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.heading span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.input,
+.textarea {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.button {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5D02C2;
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  align-self: flex-end;
+  min-width: 140px;
+}
+
+.button:hover  { opacity: 0.9; }
+.button:active { transform: scale(0.97); }
+
+.footer {
+  background: transparent;
+  padding: 24px 60px 32px;
+  text-align: center;
+}
+
+.footer p {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .contact { padding: 0 24px; }
+  .form    { padding: 32px 24px; }
+  .row     { grid-template-columns: 1fr; }
+  .button  { align-self: stretch; }
+  .footer  { padding: 24px; }
+}
