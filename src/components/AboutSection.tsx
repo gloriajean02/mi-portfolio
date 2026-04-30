@@ -18,7 +18,7 @@ export default function AboutSection() {
   }, [])
 
   return (
-    <section className={styles.about}>
+    <section id="about" className={styles.about}>
       <div className={styles.image}>
         {/* Sustituye por <img src="/images/foto.jpg" alt="Gloria Curado" /> */}
       </div>

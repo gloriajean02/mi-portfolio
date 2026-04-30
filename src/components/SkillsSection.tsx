@@ -39,7 +39,7 @@ const groups = [
 
 export default function SkillsSection() {
   return (
-    <section className={styles.skills}>
+    <section id="skills" className={styles.skills}>
       <h2 className={styles.heading}><span>&gt;</span> Skills</h2>
 
       <div className={styles.grid}>

@@ -1,0 +1,68 @@
+.nav {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 0;
+  /* dirección rtl para que la línea quede a la derecha y el texto a la izquierda */
+  flex-direction: row-reverse;
+}
+
+/* Línea indicadora */
+.line {
+  display: block;
+  height: 1px;
+  width: 12px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 99px;
+  transition: width 0.35s ease, background 0.35s ease;
+}
+
+/* Etiqueta: siempre presente pero invisible salvo en hover/active */
+.label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  /* texto alineado a la derecha respecto al botón */
+  text-align: right;
+}
+
+/* Estado activo */
+.item.active .line {
+  width: 28px;
+  background: #fff;
+}
+
+.item.active .label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hover en inactivos: aparece la etiqueta tenue */
+.item:not(.active):hover .line {
+  width: 20px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.item:not(.active):hover .label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .nav { display: none; }
+}

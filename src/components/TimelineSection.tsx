@@ -52,7 +52,7 @@ export default function TimelineSection() {
   const toggle = (id: number) => setOpenId(prev => prev === id ? null : id)
 
   return (
-    <section className={styles.section}>
+    <section id="timeline" className={styles.section}>
       <h2 className={styles.heading}><span>&gt;</span> Experiencia</h2>
 
       <div className={styles.timeline}>

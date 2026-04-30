@@ -8,7 +8,7 @@ export default function ContactSection() {
 
   return (
     <>
-      <section className={styles.contact}>
+      <section id="contact" className={styles.contact}>
         <h2 className={styles.heading}><span>&gt;</span> ¿Hablamos?</h2>
 
         <form className={styles.form} onSubmit={handleSubmit}>

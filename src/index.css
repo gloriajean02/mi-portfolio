@@ -6,9 +6,13 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Courier New', Courier, monospace;
   -webkit-font-smoothing: antialiased;
   background: #5D02C2;
-  background: linear-gradient(143deg, rgba(93, 2, 194, 1) 0%, rgba(255, 135, 9, 1) 100%, rgba(242, 41, 150, 1) 100%);
+  background: linear-gradient(143deg, rgba(93, 2, 194, 1) 10%, rgba(255, 135, 9, 1) 40%, rgba(242, 41, 150, 1) 100%);
 }
