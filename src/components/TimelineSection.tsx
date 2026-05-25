@@ -18,7 +18,7 @@ const timeline: Entry[] = [
     company: 'Sociedad de Gestión Pública de Extremadura, Mérida',
     role: 'Full Stack Developer',
     period: '2025 — presente',
-    description: 'Formación de FP Dual en desarrollo web, trabajando en proyectos reales implementando el MVC con Java, MySQL, HTML, CSS y Apache',
+    description: 'Desarrollo en entorno profesional real dentro del programa de FP Dual: implementación de aplicaciones con patrón MVC en Java, MySQL, HTML, CSS y Apache. Aprender haciendo, desde el primer día.',
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const timeline: Entry[] = [
     company: 'IES Albarregas, Mérida',
     role: 'Grado Superior Desarrollo de Aplicaciones Web',
     period: '2024 — 2026',
-    description: 'Formación técnica en desarrollo web, aprendiendo a crear aplicaciones completas con tecnologías como Java, JavaScript, HTML, CSS y bases de datos. Mis proyectos incluyen desde páginas estáticas hasta aplicaciones dinámicas con backend y frontend.',
+    description: 'Formación técnica en desarrollo web full stack: Java, JavaScript, HTML, CSS y bases de datos. Como proyecto fin de ciclo he desarrollado MOLegalSuite, una aplicación de gestión legal construida con React y Supabase, donde aplico tanto mis habilidades técnicas como mi visión de diseño.',
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const timeline: Entry[] = [
     company: 'Miami Ad School, Madrid',
     role: 'Art Director & Social Media Manager',
     period: '2020 — 2024',
-    description: 'Responsable de la comunicación corporativa integral: diseño y maquetación de newsletters, publicaciones y merchandising, aplicando y manteniendo la identidad visual de la escuela en todos los materiales. Gestión del ciclo completo, desde la producción hasta el envío y publicación en canales digitales.',
+    description: 'Durante cuatro años, responsable de toda la comunicación visual de la escuela: newsletters, publicaciones, merchandising y redes sociales. Cuidé la identidad de marca en cada pieza y gestioné el proceso completo, desde el concepto hasta la publicación. Un rol donde el diseño y la comunicación tenían impacto real cada semana.',
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const timeline: Entry[] = [
     company: 'Brother Escuela de Creativos, Madrid',
     role: 'Master en Dirección de Arte y Creatividad Publicitaria',
     period: '2018 — 2019',
-    description: 'Descripción de tus estudios, especialización y proyectos destacados.',
+    description: 'Especialización en dirección de arte y creatividad publicitaria. Aprendí a generar conceptos y a contarlos visualmente: de la idea a la ejecución. Aquí desarrollé el ojo crítico y la manera de pensar en diseño que sigo aplicando hoy al código.',
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const timeline: Entry[] = [
     company: 'Universidad de Sevilla, Sevilla',
     role: 'Grado en Publicidad y Relaciones Públicas',
     period: '2013 — 2017',
-    description: 'Descripción de tus estudios, especialización y proyectos destacados.',
+    description: 'Aquí empezó todo. Cuatro años aprendiendo a comunicar: narrativa, estructura de la información, diseño y trabajo en equipo. Una base que moldea cómo pienso cada proyecto, sea un cartel o una aplicación web.',
   },
 ]
 
