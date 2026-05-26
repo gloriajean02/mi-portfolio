@@ -12,7 +12,7 @@ export default function ContactModal() {
     setSending(true)
     const data = new FormData(e.currentTarget)
     try {
-      await fetch('https://formsubmit.co/ajax/gloriacuradogarcia@gmail.com', {
+      await fetch('https://formsubmit.co/ajax/823076f25b0fe1906e2998e9b1e839b0', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,
