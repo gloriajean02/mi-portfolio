@@ -130,18 +130,17 @@ export default function ProjectsSection() {
     const el = trackRef.current
     if (!el) return
 
-    const onMouseDown = (e: MouseEvent) => {
+    const startDrag = (x: number) => {
       isDragging.current = true
       didDrag.current = false
-      startX.current = e.clientX
+      startX.current = x
       startOffset.current = offsetRef.current
-      el.style.cursor = 'grabbing'
       document.body.style.userSelect = 'none'
     }
 
-    const onMouseMove = (e: MouseEvent) => {
+    const moveDrag = (x: number) => {
       if (!isDragging.current) return
-      const dx = e.clientX - startX.current
+      const dx = x - startX.current
       if (Math.abs(dx) > 4) didDrag.current = true
       const hw = halfWidthRef.current || el.scrollWidth / 2
       let next = startOffset.current - dx
@@ -150,14 +149,21 @@ export default function ProjectsSection() {
       el.style.transform = `translateX(${-next}px)`
     }
 
-    const onMouseUp = () => {
+    const endDrag = () => {
       if (!isDragging.current) return
       isDragging.current = false
       el.style.cursor = ''
       document.body.style.userSelect = ''
     }
 
-    // Prevent link clicks after a drag
+    const onMouseDown = (e: MouseEvent) => { startDrag(e.clientX); el.style.cursor = 'grabbing' }
+    const onMouseMove = (e: MouseEvent) => moveDrag(e.clientX)
+    const onMouseUp   = () => endDrag()
+
+    const onTouchStart = (e: TouchEvent) => startDrag(e.touches[0].clientX)
+    const onTouchMove  = (e: TouchEvent) => { moveDrag(e.touches[0].clientX); if (didDrag.current) e.preventDefault() }
+    const onTouchEnd   = () => endDrag()
+
     const onClick = (e: MouseEvent) => {
       if (didDrag.current) {
         e.preventDefault()
@@ -168,11 +174,17 @@ export default function ProjectsSection() {
 
     el.addEventListener('mousedown', onMouseDown)
     el.addEventListener('click', onClick, true)
+    el.addEventListener('touchstart', onTouchStart, { passive: true })
+    el.addEventListener('touchmove', onTouchMove, { passive: false })
+    el.addEventListener('touchend', onTouchEnd)
     window.addEventListener('mousemove', onMouseMove)
     window.addEventListener('mouseup', onMouseUp)
     return () => {
       el.removeEventListener('mousedown', onMouseDown)
       el.removeEventListener('click', onClick, true)
+      el.removeEventListener('touchstart', onTouchStart)
+      el.removeEventListener('touchmove', onTouchMove)
+      el.removeEventListener('touchend', onTouchEnd)
       window.removeEventListener('mousemove', onMouseMove)
       window.removeEventListener('mouseup', onMouseUp)
     }
@@ -185,7 +197,7 @@ export default function ProjectsSection() {
       <div
         className={styles.carousel}
         onMouseEnter={() => { hoveredRef.current = true }}
-        onMouseLeave={() => { hoveredRef.current = false }}
+        onMouseLeave={() => { hoveredRef.current = false; isDragging.current = false }}
       >
         <div className={styles.track} ref={trackRef}>
           {track.map((p, i) => (

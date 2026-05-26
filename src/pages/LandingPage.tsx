@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import ProjectsSection from '../components/ProjectsSection'
 import AboutSection from '../components/AboutSection'
@@ -9,6 +10,14 @@ import styles from './LandingPage.module.css'
 import footerStyles from './Footer.module.css'
 
 export default function LandingPage() {
+  const [showTop, setShowTop] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <>
       <SideNav />
@@ -44,6 +53,16 @@ export default function LandingPage() {
       <SkillsSection />
       <TimelineSection />
       <ContactModal />
+
+      {showTop && (
+        <button
+          className={styles.backToTop}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Volver arriba"
+        >
+          ^
+        </button>
+      )}
 
       <footer className={footerStyles.footer}>
         <p className={footerStyles.copy}>Hecho con React y mucha ilusión 🌸</p>
