@@ -36,6 +36,13 @@ const groups = [
     ],
   },
   {
+    title: 'Idiomas',
+    skills: [
+      { name: 'Castellano (nativo)', color: '#F59E0B', level: 100 },
+      { name: 'Inglés B2',          color: '#6366F1', level: 70 },
+    ],
+  },
+  {
     title: 'Diseño',
     skills: [
       { name: 'Canva',       color: '#00C4CC', level: 100 },

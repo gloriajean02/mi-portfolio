@@ -5,19 +5,6 @@
   flex-direction: column;
   align-items: center;
   gap: 60px;
-
-  /* Al salir del viewport por arriba la sección sube más rápido de lo normal
-     y se desvanece, dando la sensación de que "se aparta" para revelar el fondo */
-  animation: slideUp linear both;
-  animation-timeline: view();
-  animation-range: exit 0% exit 70%;
-}
-
-@keyframes slideUp {
-  to {
-    transform: translateY(-80px);
-    opacity: 0;
-  }
 }
 
 .heading {
@@ -32,10 +19,14 @@
   color: #a78bfa;
 }
 
+.heading span {
+  color: #a78bfa;
+}
+
 .timeline {
   position: relative;
   width: 100%;
-  max-width: 760px;
+  max-width: 640px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -95,12 +86,19 @@
 .logo {
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: 50%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .meta {
@@ -115,9 +113,6 @@
   font-family: 'Lexend', system-ui, sans-serif;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.45);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .role {
@@ -125,9 +120,6 @@
   font-size: 0.95rem;
   font-weight: 500;
   color: #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .right {
@@ -142,6 +134,20 @@
   font-family: 'Fira Code', monospace;
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: #a78bfa;
+  border: 1px solid #a78bfa55;
+  border-radius: 99px;
+  padding: 3px 10px;
+  background: #a78bfa11;
   white-space: nowrap;
 }
 
@@ -168,9 +174,26 @@
 @media (max-width: 600px) {
   .section {
     padding: 60px 24px;
+    align-items: center;
+  }
+
+  .heading {
+    text-align: center;
   }
 
   .period {
     display: none;
+  }
+
+  .cardHeader {
+    flex-wrap: wrap;
+  }
+
+  .right {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 60px;
   }
 }

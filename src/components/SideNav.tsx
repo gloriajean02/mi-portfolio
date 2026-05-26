@@ -7,7 +7,7 @@ const sections = [
   { id: 'about',     label: 'sobre mí'    },
   { id: 'skills',    label: 'skills'      },
   { id: 'timeline',  label: 'experiencia' },
-  { id: 'contact',   label: 'contacto'    },
+  { id: 'education', label: 'formación'   },
 ]
 
 export default function SideNav() {
