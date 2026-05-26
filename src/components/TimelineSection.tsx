@@ -183,12 +183,12 @@ function TimelineBlock({ entries, color, icon }: { entries: Entry[], color: stri
 export default function TimelineSection() {
   return (
     <>
-      <section id="timeline" className={styles.section}>
+      <section id="timeline" className={`${styles.section} ${styles.sectionWork}`}>
         <h2 className={styles.heading}><span>&gt;</span> Experiencia</h2>
         <TimelineBlock entries={work} color="#a78bfa" icon="💼" />
       </section>
 
-      <section id="education" className={styles.section}>
+      <section id="education" className={`${styles.section} ${styles.sectionEducation}`}>
         <h2 className={styles.heading}><span>&gt;</span> Formación</h2>
         <TimelineBlock entries={education} color="#fb923c" icon="🎓" />
       </section>
