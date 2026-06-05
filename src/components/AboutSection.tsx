@@ -10,8 +10,11 @@ const softSkills = [
   'Atención al detalle',
   'Sentido del diseño',
   'Empatía',
-  'Resolución de conflictos',
+  'Resolución de problemas',
   'Comunicación',
+  'Adaptabilidad',
+  'Proactividad',
+  'Autonomía',
 ]
 
 export default function AboutSection() {

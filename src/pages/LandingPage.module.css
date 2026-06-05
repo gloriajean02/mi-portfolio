@@ -70,6 +70,31 @@
   min-height: 2em;
 }
 
+.cvButton {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 7px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.cvButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
 .scrollArrow {
   display: none;
   position: absolute;
