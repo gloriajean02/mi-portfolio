@@ -6,6 +6,7 @@ import SkillsSection from '../components/SkillsSection'
 import TimelineSection from '../components/TimelineSection'
 import ContactModal from '../components/ContactModal'
 import SideNav from '../components/SideNav'
+import MobileNav from '../components/MobileNav'
 import styles from './LandingPage.module.css'
 import footerStyles from './Footer.module.css'
 
@@ -21,6 +22,7 @@ export default function LandingPage() {
   return (
     <>
       <SideNav />
+      <MobileNav />
       <section id="hero" className={styles.hero}>
         <div className={styles.shapes} aria-hidden="true">
           <img src="/images/forma-1.png" className={styles.shape1} alt="" />

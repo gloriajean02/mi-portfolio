@@ -1,0 +1,119 @@
+.wrap {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+  }
+
+  /* ── Barra superior ── */
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 44px;
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .brand {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* ── Botón hamburguesa ── */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .burger span {
+    display: block;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 99px;
+    transform-origin: center;
+    transition: transform 0.25s ease, opacity 0.2s ease, width 0.25s ease;
+  }
+
+  /* líneas en reposo */
+  .burger span:nth-child(1) { width: 20px; }
+  .burger span:nth-child(2) { width: 14px; }
+  .burger span:nth-child(3) { width: 20px; }
+
+  /* transformación a X */
+  .burger.open span:nth-child(1) {
+    width: 20px;
+    transform: translateY(6px) rotate(45deg);
+  }
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+  }
+  .burger.open span:nth-child(3) {
+    width: 20px;
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* ── Menú desplegable ── */
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.28s ease;
+  }
+
+  .menu.menuOpen {
+    max-height: 320px;
+  }
+
+  .link {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 24px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .link:last-child {
+    border-bottom: none;
+  }
+
+  .link:active {
+    color: rgba(255, 255, 255, 0.95);
+    padding-left: 32px;
+  }
+}

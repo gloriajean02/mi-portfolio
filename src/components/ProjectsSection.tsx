@@ -5,6 +5,15 @@ const SPEED = 0.6
 
 const projects = [
   {
+    id: 6, href: 'https://vesto-sigma.vercel.app/', img: '/images/Vesto.png', name: 'Vesto',
+    techs: [
+      { name: 'React', color: '#61DAFB' },
+      { name: 'TypeScript', color: '#3178C6' },
+      { name: 'Supabase', color: '#3ECF8E' },
+      { name: 'Tailwind', color: '#38BDF8' },
+    ],
+  },
+  {
     id: 1, href: 'https://www.moranortiz.com/', img: '/images/MoranOrtiz.png', name: 'MoranOrtiz',
     techs: [
       { name: 'WordPress', color: '#21759B' },
@@ -40,15 +49,6 @@ const projects = [
       { name: 'TypeScript', color: '#3178C6' },
       { name: 'Supabase', color: '#3ECF8E' },
       { name: 'ShadCN', color: '#94A3B8' },
-      { name: 'Tailwind', color: '#38BDF8' },
-    ],
-  },
-  {
-    id: 6, href: 'https://vesto-wheat.vercel.app/', img: '/images/Vesto.png', name: 'Vesto', disabled: true,
-    techs: [
-      { name: 'React', color: '#61DAFB' },
-      { name: 'TypeScript', color: '#3178C6' },
-      { name: 'Supabase', color: '#3ECF8E' },
       { name: 'Tailwind', color: '#38BDF8' },
     ],
   },
