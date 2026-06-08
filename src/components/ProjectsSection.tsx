@@ -5,6 +5,16 @@ const SPEED = 0.6
 
 const projects = [
   {
+    id: 5, href: '/mo-legal-suite', img: '/images/MOLegalSuite.png', name: 'MOLegalSuite',
+    techs: [
+      { name: 'React', color: '#61DAFB' },
+      { name: 'TypeScript', color: '#3178C6' },
+      { name: 'Supabase', color: '#3ECF8E' },
+      { name: 'ShadCN', color: '#94A3B8' },
+      { name: 'Tailwind', color: '#38BDF8' },
+    ],
+  },
+  {
     id: 6, href: 'https://vesto-sigma.vercel.app/', img: '/images/Vesto.png', name: 'Vesto',
     techs: [
       { name: 'React', color: '#61DAFB' },
@@ -21,13 +31,6 @@ const projects = [
     ],
   },
   {
-    id: 2, href: 'https://gloriajean02.github.io/superMiau-Bros/', img: '/images/SuperMiauBros.png', name: 'SuperMiauBros',
-    techs: [
-      { name: 'JavaScript', color: '#F7DF1E' },
-      { name: 'CSS', color: '#264DE4' },
-    ],
-  },
-  {
     id: 3, href: 'https://gloriajean02.github.io/brava-agency/', img: '/images/BravaAgency.png', name: 'BravaAgency',
     techs: [
       { name: 'HTML', color: '#E34F26' },
@@ -36,20 +39,17 @@ const projects = [
     ],
   },
   {
-    id: 4, href: 'https://gloriajean02.github.io/tableroKanban/', img: '/images/TableroKanban.png', name: 'TableroKanban', hidden: true,
+    id: 2, href: 'https://gloriajean02.github.io/superMiau-Bros/', img: '/images/SuperMiauBros.png', name: 'SuperMiauBros',
     techs: [
       { name: 'JavaScript', color: '#F7DF1E' },
       { name: 'CSS', color: '#264DE4' },
     ],
   },
   {
-    id: 5, href: '/mo-legal-suite', img: '/images/MOLegalSuite.png', name: 'MOLegalSuite',
+    id: 4, href: 'https://gloriajean02.github.io/tableroKanban/', img: '/images/TableroKanban.png', name: 'TableroKanban', hidden: true,
     techs: [
-      { name: 'React', color: '#61DAFB' },
-      { name: 'TypeScript', color: '#3178C6' },
-      { name: 'Supabase', color: '#3ECF8E' },
-      { name: 'ShadCN', color: '#94A3B8' },
-      { name: 'Tailwind', color: '#38BDF8' },
+      { name: 'JavaScript', color: '#F7DF1E' },
+      { name: 'CSS', color: '#264DE4' },
     ],
   },
   {
