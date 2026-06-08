@@ -159,8 +159,8 @@ export default function MOLegalSuitePage() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.65 }}
         >
-          Así es como conseguimos que todas esas llamadas, emails y whatsapps quedaran unificadas
-          en un solo lugar
+          Así es como conseguimos que todas esas llamadas, emails y whatsapps queden unificadas
+          en un solo lugar.
         </motion.p>
 
         <motion.p
