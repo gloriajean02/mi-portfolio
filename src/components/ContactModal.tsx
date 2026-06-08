@@ -69,7 +69,7 @@ export default function ContactModal() {
                     <input className={styles.input} type="text"  name="name"    placeholder="Nombre"  required />
                     <input className={styles.input} type="email" name="email"   placeholder="Email"   required />
                   </div>
-                  <textarea className={styles.textarea} name="message" placeholder="Cuéntame tu proyecto..." rows={5} required />
+                  <textarea className={styles.textarea} name="message" placeholder="Cuéntame en qué puedo ayudarte — proyecto freelance, incorporación a equipo, colaboración..." rows={5} required />
                   <button className={styles.submitBtn} type="submit" disabled={sending}>
                     {sending ? 'Enviando...' : 'Enviar'}
                   </button>

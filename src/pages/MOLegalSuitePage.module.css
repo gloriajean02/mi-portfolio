@@ -1,0 +1,224 @@
+.page {
+  min-height: 100vh;
+  background: radial-gradient(ellipse 80% 70% at 50% 35%, #0D2236 0%, #070F18 100%);
+  color: #fff;
+  position: relative;
+}
+
+.back {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.back:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 0;
+  gap: 36px;
+}
+
+.logo {
+  width: clamp(160px, 22vw, 240px);
+  object-fit: contain;
+}
+
+.tagline {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.devicesWrapper {
+  position: relative;
+  width: min(700px, 90vw);
+  margin-top: 56px;
+}
+
+.laptop {
+  display: block;
+  margin-left: 15%;
+  width: 85%;
+}
+
+.mobile {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 27%;
+  z-index: 2;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px 100px;
+  gap: 60px;
+}
+
+.description {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 600px;
+  margin: 0;
+}
+
+.phonesWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  width: min(700px, 92vw);
+}
+
+.phone {
+  height: clamp(260px, 35vw, 420px);
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.phoneFront {
+  height: clamp(260px, 35vw, 420px);
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-right: -36px;
+  z-index: 2;
+}
+
+.section3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 100px;
+  gap: 48px;
+}
+
+.demoWrapper {
+  width: min(560px, 92vw);
+}
+
+.section4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 120px;
+  gap: 48px;
+}
+
+.laptopFull {
+  width: min(720px, 92vw);
+  object-fit: contain;
+}
+
+.section5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 140px;
+  gap: 56px;
+}
+
+.mobileTilted {
+  height: clamp(300px, 40vw, 480px);
+  width: auto;
+  object-fit: contain;
+}
+
+.backBottom {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px 80px;
+}
+
+.backBtn {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 24px;
+  border-radius: 24px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.backBtn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.finalTagline {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: unset;
+    justify-content: flex-start;
+    padding: 100px 24px 10px;
+  }
+
+  .devicesWrapper {
+    margin-top: 52px;
+  }
+
+  .laptop {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+  }
+
+  .mobile {
+    width: 100px;
+    bottom: 15px;
+  }
+
+  .section2 {
+    padding-top: 50px;
+  }
+
+  .phonesWrapper {
+    gap: 10px;
+  }
+
+  .phoneHideMobile {
+    display: none;
+  }
+}

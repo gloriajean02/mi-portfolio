@@ -67,7 +67,7 @@
 }
 
 .cardDisabled {
-  cursor: wait;
+  cursor: not-allowed;
 }
 
 .cardDisabled:hover {
