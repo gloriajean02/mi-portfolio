@@ -42,7 +42,7 @@ export default function LandingPage() {
             className={styles.subtitle}
           />
           <a
-            href="/CV_GloriaCurado.pdf"
+            href="/CV_Gloria_Curado_García_foto.pdf"
             download
             className={styles.cvButton}
           >
