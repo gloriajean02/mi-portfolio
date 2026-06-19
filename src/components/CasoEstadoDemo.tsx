@@ -1,12 +1,5 @@
 import { useState, useRef } from "react";
-
-type Fase = { titulo: string; descripcion: string; entrada: string; salida: string | null };
-
-const FASES: Fase[] = [
-    { titulo: "Apertura del expediente", descripcion: "Recepción y registro del caso",                  entrada: "10 sep 2024", salida: "20 nov 2024" },
-    { titulo: "Instrucción",             descripcion: "Análisis de documentación y diligencias previas", entrada: "20 nov 2024", salida: "14 feb 2025" },
-    { titulo: "Fase oral",               descripcion: "Celebración de vistas y juicio",                  entrada: "14 feb 2025", salida: null },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const S = {
     card: {
@@ -116,6 +109,10 @@ function ChevronRight() {
 }
 
 export default function CasoEstadoDemo() {
+    const { t } = useLanguage();
+    const demo = t.caseDemo;
+    const FASES = demo.phases;
+
     const [idx, setIdx] = useState(FASES.length - 1);
     const [hoveredBar, setHoveredBar] = useState<number | null>(null);
     const [hoveredLeft, setHoveredLeft] = useState(false);
@@ -160,13 +157,12 @@ export default function CasoEstadoDemo() {
             `}</style>
 
             <div style={S.card}>
-                <div style={S.header}>Estado del caso</div>
+                <div style={S.header}>{demo.header}</div>
 
                 <div style={S.body}>
-                    {/* Barras carrusel */}
                     <div
                         role="group"
-                        aria-label="Navegación de fases"
+                        aria-label={demo.ariaNav}
                         tabIndex={0}
                         style={S.bars}
                         onKeyDown={(e) => {
@@ -200,7 +196,6 @@ export default function CasoEstadoDemo() {
                         })}
                     </div>
 
-                    {/* Detalle */}
                     <div
                         style={S.row}
                         onTouchStart={handleTouchStart}
@@ -240,7 +235,7 @@ export default function CasoEstadoDemo() {
                                             }} />
                                         </div>
                                         <div style={{ minWidth: 0, flex: 1 }}>
-                                            <p style={S.label}>Fase {idx + 1}</p>
+                                            <p style={S.label}>{demo.phaseLabel} {idx + 1}</p>
                                             <p style={S.title}>{fase.titulo}</p>
                                             {fase.descripcion && <p style={S.desc}>{fase.descripcion}</p>}
                                             <hr style={S.hrBlue} />
@@ -250,7 +245,7 @@ export default function CasoEstadoDemo() {
                                 </div>
                             ) : (
                                 <div style={S.cardPast}>
-                                    <p style={S.label}>Fase {idx + 1}</p>
+                                    <p style={S.label}>{demo.phaseLabel} {idx + 1}</p>
                                     <p style={S.titlePast}>{fase.titulo}</p>
                                     {fase.descripcion && <p style={S.desc}>{fase.descripcion}</p>}
                                     <hr style={S.hr} />

@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './MobileNav.module.css'
 
-const sections = [
-  { id: 'hero',      label: 'inicio'      },
-  { id: 'projects',  label: 'proyectos'   },
-  { id: 'about',     label: 'sobre mí'    },
-  { id: 'skills',    label: 'skills'      },
-  { id: 'timeline',  label: 'experiencia' },
-  { id: 'education', label: 'formación'   },
-]
-
 export default function MobileNav() {
+  const { t, toggleLang } = useLanguage()
   const [open, setOpen] = useState(false)
+
+  const sections = [
+    { id: 'hero',      label: t.nav.home       },
+    { id: 'projects',  label: t.nav.projects   },
+    { id: 'about',     label: t.nav.about      },
+    { id: 'skills',    label: t.nav.skills     },
+    { id: 'timeline',  label: t.nav.experience },
+    { id: 'education', label: t.nav.education  },
+  ]
 
   const scrollTo = (id: string) => {
     setOpen(false)
@@ -29,10 +31,19 @@ export default function MobileNav() {
     <div className={styles.wrap} onClick={e => e.stopPropagation()}>
       <div className={styles.bar}>
         <span className={styles.brand}>gc</span>
+
+        <button
+          className={styles.langBtn}
+          onClick={toggleLang}
+          aria-label={t.nav.ariaLang}
+        >
+          {t.nav.langToggle}
+        </button>
+
         <button
           className={`${styles.burger} ${open ? styles.open : ''}`}
           onClick={() => setOpen(o => !o)}
-          aria-label="Menú"
+          aria-label={t.nav.ariaMenu}
           aria-expanded={open}
         >
           <span />

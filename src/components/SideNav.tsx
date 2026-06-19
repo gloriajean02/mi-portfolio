@@ -1,24 +1,23 @@
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './SideNav.module.css'
 
-const sections = [
-  { id: 'hero',      label: 'inicio'      },
-  { id: 'projects',  label: 'proyectos'   },
-  { id: 'about',     label: 'sobre mí'    },
-  { id: 'skills',    label: 'skills'      },
-  { id: 'timeline',  label: 'experiencia' },
-  { id: 'education', label: 'formación'   },
-]
 
 export default function SideNav() {
+  const { t } = useLanguage()
   const [active, setActive] = useState('hero')
+
+  const sections = [
+    { id: 'hero',      label: t.nav.home       },
+    { id: 'projects',  label: t.nav.projects   },
+    { id: 'about',     label: t.nav.about      },
+    { id: 'skills',    label: t.nav.skills     },
+    { id: 'timeline',  label: t.nav.experience },
+    { id: 'education', label: t.nav.education  },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
-      // La sección activa es la última cuyo borde superior
-      // haya cruzado la mitad del viewport hacia arriba.
-      // Se itera en orden y se sobreescribe current con cada
-      // sección que cumpla la condición, quedando la más baja visible.
       const mid = window.innerHeight * 0.5
       let current = sections[0].id
 
@@ -34,13 +33,13 @@ export default function SideNav() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [t])
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <nav className={styles.nav} aria-label="Navegación lateral">
+    <nav className={styles.nav} aria-label={t.nav.ariaNav}>
       {sections.map(({ id, label }) => (
         <button
           key={id}
@@ -52,6 +51,7 @@ export default function SideNav() {
           <span className={styles.label}>{label}</span>
         </button>
       ))}
+
     </nav>
   )
 }

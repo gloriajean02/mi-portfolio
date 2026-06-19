@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './ProjectsSection.module.css'
 
 const SPEED = 0.6
@@ -98,6 +99,7 @@ function Card({ p }: { p: typeof projects[0] }) {
 }
 
 export default function ProjectsSection() {
+  const { t } = useLanguage()
   const trackRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number>(0)
   const offsetRef = useRef(0)
@@ -193,7 +195,7 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className={styles.projects}>
-      <h2 className={styles.heading}><span>&gt;</span> Proyectos</h2>
+      <h2 className={styles.heading}><span>&gt;</span> {t.projects.heading}</h2>
 
       <div
         className={styles.carousel}

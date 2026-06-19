@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './ContactModal.module.css'
 
 export default function ContactModal() {
+  const { t } = useLanguage()
   const [open, setOpen] = useState(false)
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
@@ -32,7 +34,7 @@ export default function ContactModal() {
         onClick={() => setOpen(o => !o)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.93 }}
-        aria-label="Abrir contacto"
+        aria-label={t.contact.ariaOpen}
       >
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -55,23 +57,23 @@ export default function ContactModal() {
               exit={{ opacity: 0, scale: 0.92, y: 24 }}
               transition={{ type: 'spring', stiffness: 320, damping: 28 }}
             >
-              <button className={styles.closeBtn} onClick={() => setOpen(false)} aria-label="Cerrar">✕</button>
+              <button className={styles.closeBtn} onClick={() => setOpen(false)} aria-label={t.contact.ariaClose}>✕</button>
 
-              <h2 className={styles.heading}><span>&gt;</span> ¿Hablamos?</h2>
+              <h2 className={styles.heading}><span>&gt;</span> {t.contact.heading}</h2>
 
               {sent ? (
-                <p className={styles.success}>¡Mensaje enviado! Te respondo pronto 🙌</p>
+                <p className={styles.success}>{t.contact.successMessage}</p>
               ) : (
                 <form className={styles.form} onSubmit={handleSubmit}>
                   <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_subject" value="Nuevo mensaje del portfolio" />
+                  <input type="hidden" name="_subject" value={t.contact.emailSubject} />
                   <div className={styles.row}>
-                    <input className={styles.input} type="text"  name="name"    placeholder="Nombre"  required />
-                    <input className={styles.input} type="email" name="email"   placeholder="Email"   required />
+                    <input className={styles.input} type="text"  name="name"    placeholder={t.contact.namePlaceholder}  required />
+                    <input className={styles.input} type="email" name="email"   placeholder={t.contact.emailPlaceholder}  required />
                   </div>
-                  <textarea className={styles.textarea} name="message" placeholder="Cuéntame en qué puedo ayudarte — proyecto freelance, incorporación a equipo, colaboración..." rows={5} required />
+                  <textarea className={styles.textarea} name="message" placeholder={t.contact.messagePlaceholder} rows={5} required />
                   <button className={styles.submitBtn} type="submit" disabled={sending}>
-                    {sending ? 'Enviando...' : 'Enviar'}
+                    {sending ? t.contact.sending : t.contact.send}
                   </button>
                 </form>
               )}

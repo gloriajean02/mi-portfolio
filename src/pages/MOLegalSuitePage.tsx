@@ -1,17 +1,23 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 import CasoEstadoDemo from '../components/CasoEstadoDemo'
+import LangToggle from '../components/LangToggle'
 import styles from './MOLegalSuitePage.module.css'
 
 const phones = [
-  { src: '/images/MOLegalSuite/movil2.png', delay: 0,    cls: styles.phoneFront },
-  { src: '/images/MOLegalSuite/movil3.png', delay: 0.15, cls: styles.phone      },
-  { src: '/images/MOLegalSuite/movil4.png', delay: 0.3,  cls: `${styles.phone} ${styles.phoneHideMobile}` },
+  { src: '/images/MOLegalSuite/movil2.png', delay: 0,    cls: (s: typeof styles) => s.phoneFront },
+  { src: '/images/MOLegalSuite/movil3.png', delay: 0.15, cls: (s: typeof styles) => s.phone      },
+  { src: '/images/MOLegalSuite/movil4.png', delay: 0.3,  cls: (s: typeof styles) => `${s.phone} ${s.phoneHideMobile}` },
 ]
 
 export default function MOLegalSuitePage() {
+  const { t } = useLanguage()
+  const m = t.moLegalSuite
+
   return (
     <div className={styles.page}>
-      <a href="/#projects" className={styles.back}>← volver</a>
+      <a href="/#projects" className={styles.back}>{m.back}</a>
+      <LangToggle />
 
       <section className={styles.hero}>
         <motion.img
@@ -29,13 +35,13 @@ export default function MOLegalSuitePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
         >
-          Tu despacho de abogados<br />en la palma de tu mano
+          {m.tagline[0]}<br />{m.tagline[1]}
         </motion.h1>
 
         <div className={styles.devicesWrapper}>
           <motion.img
             src="/images/MOLegalSuite/laptop1.png"
-            alt="MO Legal Suite en laptop"
+            alt={m.altLaptop}
             className={styles.laptop}
             initial={{ x: 180, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -43,7 +49,7 @@ export default function MOLegalSuitePage() {
           />
           <motion.img
             src="/images/MOLegalSuite/movil1.png"
-            alt="MO Legal Suite en móvil"
+            alt={m.altMobile}
             className={styles.mobile}
             initial={{ x: -180, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -60,8 +66,7 @@ export default function MOLegalSuitePage() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.65 }}
         >
-          Morán Ortiz es un despacho de abogados con sede en Sevilla que trabaja para clientes de toda España.
-          Necesitaban una aplicación web para gestionar su despacho&nbsp;— y este es el resultado.
+          {m.desc1}
         </motion.p>
 
         <div className={styles.phonesWrapper}>
@@ -70,7 +75,7 @@ export default function MOLegalSuitePage() {
               key={src}
               src={src}
               alt=""
-              className={cls}
+              className={cls(styles)}
               draggable={false}
               initial={{ y: 90, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -89,8 +94,7 @@ export default function MOLegalSuitePage() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.65 }}
         >
-          Al igual que Amazon te permite seguir dónde está tu paquete, MOLegalSuite le permite al cliente
-          seguir su caso: fases del expediente, documentos, notificaciones y citas.
+          {m.desc2}
         </motion.p>
 
         <motion.div
@@ -112,14 +116,12 @@ export default function MOLegalSuitePage() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.65 }}
         >
-          Cada caso tiene su propio espacio: documentos adjuntos, un historial de fases por las que ha
-          pasado, las notificaciones enviadas al cliente y las citas programadas. Nada se pierde, todo
-          está donde toca.
+          {m.desc3}
         </motion.p>
 
         <motion.img
           src="/images/MOLegalSuite/laptop2.png"
-          alt="Vista detalle de caso en MOLegalSuite"
+          alt={m.altLaptopDetail}
           className={styles.laptopFull}
           draggable={false}
           initial={{ opacity: 0, y: 60 }}
@@ -137,13 +139,12 @@ export default function MOLegalSuitePage() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.65 }}
         >
-          Y al igual que Amazon tiene un almacén con personas trabajando detrás, MOLegalSuite tiene
-          un panel para el administrador donde ocurre toda la gestión.
+          {m.desc4}
         </motion.p>
 
         <motion.img
           src="/images/MOLegalSuite/movil5.png"
-          alt="Panel de administrador en MOLegalSuite"
+          alt={m.altAdminPanel}
           className={styles.mobileTilted}
           draggable={false}
           initial={{ opacity: 0, y: 60, rotate: -30 }}
@@ -159,8 +160,7 @@ export default function MOLegalSuitePage() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.65 }}
         >
-          Así es como conseguimos que todas esas llamadas, emails y whatsapps queden unificadas
-          en un solo lugar.
+          {m.desc5}
         </motion.p>
 
         <motion.p
@@ -170,12 +170,12 @@ export default function MOLegalSuitePage() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Un proyecto real, construido de cero.<br />Desde el diseño hasta el despliegue.
+          {m.finalTagline[0]}<br />{m.finalTagline[1]}
         </motion.p>
       </section>
 
       <div className={styles.backBottom}>
-        <a href="/#projects" className={styles.backBtn}>← volver al portfolio</a>
+        <a href="/#projects" className={styles.backBtn}>{m.backBottom}</a>
       </div>
     </div>
   )
