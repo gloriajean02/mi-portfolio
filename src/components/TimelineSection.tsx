@@ -17,7 +17,7 @@ const work: Entry[] = [
     id: 1,
     company: 'Sociedad de Gestión Pública de Extremadura',
     role: 'Full Stack Developer',
-    period: '2025 — presente',
+    period: '2025 — 2026',
     logo: '/images/gpex.png',
     location: 'Mérida',
     description: 'Desarrollo en entorno profesional real dentro del programa de FP Dual: implementación de aplicaciones con patrón MVC en Java, MySQL, HTML, CSS y Apache. Aprender haciendo, desde el primer día.',
