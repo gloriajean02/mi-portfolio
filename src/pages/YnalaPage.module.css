@@ -1,0 +1,347 @@
+.page {
+  --violet: #6E43AC;
+  --violet-dark: #23123B;
+  --lime: #D0F37E;
+  --bg: #ECECEC;
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--violet-dark);
+  font-family: 'Poppins', system-ui, sans-serif;
+  position: relative;
+}
+
+/* fixed pills: violet so they read on both the violet hero and the light body */
+.back,
+.page .pill {
+  position: fixed;
+  top: 24px;
+  z-index: 10;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--lime);
+  background: rgba(35, 18, 59, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(208, 243, 126, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.back { left: 24px; }
+
+.back:hover,
+.page .pill:hover {
+  color: var(--lime);
+  background: rgba(35, 18, 59, 0.8);
+}
+
+.hero {
+  min-height: 100vh;
+  background: var(--violet);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  gap: 8px;
+}
+
+.logo {
+  width: min(440px, 80%);
+  margin-bottom: 32px;
+}
+
+.tagline {
+  font-weight: 300;
+  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  max-width: 600px;
+  text-wrap: balance;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 24px 0;
+  gap: 48px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 620px;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--violet);
+  margin: 0;
+  text-align: center;
+}
+
+.description {
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+  max-width: 620px;
+}
+
+.description strong {
+  font-weight: 700;
+  color: var(--violet);
+}
+
+.club .description strong {
+  color: var(--lime);
+}
+
+.logoPair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: min(960px, 100%);
+}
+
+.stretchPhoto,
+.logoTile {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 20px;
+}
+
+.stretchPhoto {
+  object-fit: cover;
+  display: block;
+}
+
+.logoTile {
+  background: var(--violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoTile img {
+  width: 78%;
+}
+
+.variants {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: min(960px, 100%);
+}
+
+.variant {
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.variant img {
+  width: 56%;
+}
+
+.image {
+  display: block;
+  width: min(960px, 100%);
+  height: auto;
+  border-radius: 20px;
+}
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: min(960px, 100%);
+}
+
+.swatch {
+  aspect-ratio: 1 / 1.6;
+  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  padding-bottom: 28%;
+  text-align: center;
+}
+
+.swatchName {
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
+}
+
+.swatchHex {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.typeSpecimen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: min(960px, 100%);
+  background: var(--violet);
+  color: #fff;
+  border-radius: 20px;
+  padding: 40px 24px;
+}
+
+.typeWeight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.typeAa {
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  line-height: 1;
+  color: var(--lime);
+}
+
+.typeName {
+  font-size: 0.9rem;
+}
+
+.club {
+  background: var(--violet);
+  color: #fff;
+  margin-top: 120px;
+  padding-block: 100px;
+}
+
+.club .heading {
+  color: var(--lime);
+}
+
+/* white lettering over a violet dog: shown on orange, like the club sticker */
+.clubLogo {
+  width: min(260px, 64%);
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #FF904E;
+  border-radius: 50%;
+  padding: 36px;
+  box-shadow: 0 0 0 6px var(--lime);
+}
+
+.club + .section {
+  padding-top: 100px;
+}
+
+.toolsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 24px 60px;
+  gap: 24px;
+}
+
+.toolsHeading {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 400;
+  margin: 0;
+}
+
+.toolsHeading span {
+  color: var(--violet);
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.85rem;
+  background: #fff;
+  border: 1px solid rgba(35, 18, 59, 0.12);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.toolDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(35, 18, 59, 0.15);
+}
+
+.backBottom {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px 80px;
+}
+
+.backBtn {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #fff;
+  text-decoration: none;
+  background: var(--violet);
+  padding: 10px 24px;
+  border-radius: 24px;
+  transition: background 0.2s;
+}
+
+.backBtn:hover {
+  background: var(--violet-dark);
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding-top: 80px;
+    gap: 32px;
+  }
+
+  .palette {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .swatch {
+    aspect-ratio: 1 / 1.2;
+    border-radius: 32px;
+  }
+
+  .typeSpecimen {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .variants,
+  .logoPair {
+    gap: 10px;
+  }
+
+  .image,
+  .stretchPhoto,
+  .logoTile,
+  .variant {
+    border-radius: 12px;
+  }
+}

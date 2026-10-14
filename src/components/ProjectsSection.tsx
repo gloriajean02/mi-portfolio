@@ -25,6 +25,14 @@ const projects = [
     ],
   },
   {
+    id: 8, href: '/ynala', img: '/images/Ynala.png', name: 'Ynala',
+    techs: [
+      { name: 'Branding', color: '#D0F37E' },
+      { name: 'Illustrator', color: '#FF9A00' },
+      { name: 'Photoshop', color: '#31A8FF' },
+    ],
+  },
+  {
     id: 1, href: 'https://www.moranortiz.com/', img: '/images/MoranOrtiz.png', name: 'MoranOrtiz',
     techs: [
       { name: 'WordPress', color: '#21759B' },
