@@ -40,7 +40,7 @@ const projects = [
     ],
   },
   {
-    id: 2, href: 'https://gloriajean02.github.io/superMiau-Bros/', img: '/images/SuperMiauBros.png', name: 'SuperMiauBros',
+    id: 2, href: 'https://gloriajean02.github.io/superMiau-Bros/', img: '/images/SuperMiauBros.png', name: 'SuperMiauBros', hidden: true,
     techs: [
       { name: 'JavaScript', color: '#F7DF1E' },
       { name: 'CSS', color: '#264DE4' },
