@@ -155,6 +155,87 @@
   object-fit: contain;
 }
 
+.techSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 100px;
+  gap: 28px;
+}
+
+.techHeading {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.techHeading span {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.techBadges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.techBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.techDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.appLink {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s;
+}
+
+.appLink:hover {
+  color: #fff;
+}
+
+.appLink:hover .appUrl {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.lockIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.appNote {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 .backBottom {
   display: flex;
   justify-content: center;

@@ -10,6 +10,16 @@ const phones = [
   { src: '/images/MOLegalSuite/movil4.png', delay: 0.3,  cls: (s: typeof styles) => `${s.phone} ${s.phoneHideMobile}` },
 ]
 
+const techs = [
+  { name: 'React', color: '#61DAFB' },
+  { name: 'TypeScript', color: '#3178C6' },
+  { name: 'Supabase', color: '#3ECF8E' },
+  { name: 'Node.js', color: '#5FA04E' },
+  { name: 'Tailwind', color: '#38BDF8' },
+  { name: 'ShadCN', color: '#94A3B8' },
+  { name: 'Figma', color: '#F24E1E' },
+]
+
 export default function MOLegalSuitePage() {
   const { t } = useLanguage()
   const m = t.moLegalSuite
@@ -173,6 +183,39 @@ export default function MOLegalSuitePage() {
           {m.finalTagline[0]}<br />{m.finalTagline[1]}
         </motion.p>
       </section>
+
+      <motion.section
+        className={styles.techSection}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.65 }}
+      >
+        <h2 className={styles.techHeading}><span>&gt;</span> {m.techHeading}</h2>
+
+        <div className={styles.techBadges}>
+          {techs.map((tech) => (
+            <span key={tech.name} className={styles.techBadge}>
+              <span className={styles.techDot} style={{ background: tech.color }} />
+              {tech.name}
+            </span>
+          ))}
+        </div>
+
+        <a
+          href="https://app.moranortiz.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.appLink}
+        >
+          <svg className={styles.lockIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="4" y="11" width="16" height="10" rx="2" />
+            <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+          </svg>
+          <span className={styles.appUrl}>app.moranortiz.com</span>
+          <span className={styles.appNote}>· {m.appPrivate}</span>
+        </a>
+      </motion.section>
 
       <div className={styles.backBottom}>
         <a href="/#projects" className={styles.backBtn}>{m.backBottom}</a>
