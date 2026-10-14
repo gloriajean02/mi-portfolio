@@ -6,21 +6,21 @@ const SPEED = 0.6
 
 const projects = [
   {
+    id: 6, href: 'https://vesto-sigma.vercel.app/', img: '/images/Vesto.png', name: 'Vesto',
+    techs: [
+      { name: 'React', color: '#61DAFB' },
+      { name: 'TypeScript', color: '#3178C6' },
+      { name: 'Supabase', color: '#3ECF8E' },
+      { name: 'Tailwind', color: '#38BDF8' },
+    ],
+  },
+  {
     id: 5, href: '/mo-legal-suite', img: '/images/MOLegalSuite.png', name: 'MOLegalSuite',
     techs: [
       { name: 'React', color: '#61DAFB' },
       { name: 'TypeScript', color: '#3178C6' },
       { name: 'Supabase', color: '#3ECF8E' },
       { name: 'ShadCN', color: '#94A3B8' },
-      { name: 'Tailwind', color: '#38BDF8' },
-    ],
-  },
-  {
-    id: 6, href: 'https://vesto-sigma.vercel.app/', img: '/images/Vesto.png', name: 'Vesto',
-    techs: [
-      { name: 'React', color: '#61DAFB' },
-      { name: 'TypeScript', color: '#3178C6' },
-      { name: 'Supabase', color: '#3ECF8E' },
       { name: 'Tailwind', color: '#38BDF8' },
     ],
   },
